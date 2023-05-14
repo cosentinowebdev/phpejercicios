@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  web:
+    container_name: formu-alerta
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - 9002:80
+    image: php:7.1.33-apache
+    command: "/bin/sh -c 'docker-php-ext-install mysqli && exec docker-php-entrypoint apache2-foreground'"
